@@ -5,6 +5,12 @@ Explain what features in Elixir you are using to provide the objects and OO pill
 
 The OO pillars are encapsulation, abstraction, polymorphism, and inheritance.
 
+For encapsulation in the "Animal" Java class, we make the name private to the scope of the animal process in Elixir. The name is passed into the animal class when the message is sent in the "new" function. The name value is only accessible inside the animal process. Other process like "dog" and "cat" cannot get the name value from the "animal" class. In Elixir, we don't have a getName message, but we use spawn and link to create a dog/cat process with the name as parameter value. This stepss allows the dog/cat process to have access to the name variable indirectly. 
+
+For abstraction in the "Animal" Java class, we make something similar in the animal class in Elixir. Inside the body of the "{:speak, _pid}" message pattern matching, we didn't implement the print statement directly. Instead, we pass the specific implementation to the "dog" and "cat" process by just spawning those processes in the body of "{:speak, _pid}". This abstract the speak function in the "animal" process. 
+
+For polymorphism in Java example, they have two versions of the speak method body. In Elixir, both "dog" and "cat" process have the ":speak" message pattern matching that's 
+
 
 
 
