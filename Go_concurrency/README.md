@@ -4,13 +4,13 @@
 
 Deadlock is when two or more processes got blocked because each of them are waiting for the other to releasse a resource that they need. In this context of producers generating numbers and consumers receiving numbers, the deadlock situation would not occur. 
 
-The producer processes 'producer_one' and 'producer_two' does not have deadlock because each one is generating numbers and saving it to the 'inCh' channel. Producer one don't need any resources from producer two, and vice versa. They might be blocked if no cutomer is consuming the number from 'inCh' channle and the buffered 'inCh' is full. But it is not the case here. 
+The producer processes 'producer_one' and 'producer_two' do not have deadlock because each one is generating numbers and saving them to the 'inCh' channel. Producer one doesn't need any resources from producer two, and vice versa. They might be blocked if no customer is consuming the number from the 'inCh' channel and the buffered 'inCh' is full. But this is not the case here. 
 
 The consumer processes 'consumer_one' and 'consumer_two' also does not result in deadlock situation. Because each consumer gets a number from the 'inCh' in random interval. It is not the case that the two consumer would get a number from each other. 
 
 The processes between producer and consumer also does not cause any deadlock. Because the producers does not need any resources from the consumer, and consumers get numbers from the channels.
 
-Lastly, the filter_number process gets number from the 'outCh'. The process is basically isolated from consumer and producer processes by using the buffered channel as intermediary to prevent deadlocks. 
+Lastly, the filter_number process gets the number from the 'outCh'. The process is isolated from consumer and producer processes by using the buffered channel as an intermediary to prevent deadlocks. 
 
 In summary, the buffered channel helps avoid deadlocks between processes.
 
